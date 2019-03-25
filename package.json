@@ -14,7 +14,11 @@
   },
   "scripts": {
     "start-server": "npm run start --prefix server",
-    "start": "npm run start-server"
+    "start-client": "npm run start --prefix client",
+    "start": "concurrently --kill-others \"npm run start-server\" \"npm run start-client\""
   },
-  "homepage": "https://github.com/vasilyeu-pavel/simple-graphql-app#readme"
+  "homepage": "https://github.com/vasilyeu-pavel/simple-graphql-app#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
 }
