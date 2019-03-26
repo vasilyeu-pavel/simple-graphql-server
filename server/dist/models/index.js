@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var times = {
-  pasha: '2019-03-01'
+  pasha: 5
 };
 
 exports.default = { times: times };

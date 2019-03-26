@@ -1,5 +1,5 @@
 const times = {
-  pasha: '2019-03-01'
+  pasha: 5
 };
 
 export default { times };

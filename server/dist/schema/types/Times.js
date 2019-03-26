@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.resolvers = exports.typeDef = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n  type Times {\n    username: String\n    date: String\n  }\n\n  extend type Query {\n    getTime(username: String!): Times\n  }\n\n  extend type Mutation {\n    setTime(username: String!, date: String!): Boolean\n  }\n'], ['\n  type Times {\n    username: String\n    date: String\n  }\n\n  extend type Query {\n    getTime(username: String!): Times\n  }\n\n  extend type Mutation {\n    setTime(username: String!, date: String!): Boolean\n  }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  type Times {\n    username: String\n    time: Int\n  }\n\n  extend type Query {\n    getTime(username: String!): Times\n  }\n\n  extend type Mutation {\n    setTime(username: String!, time: Int!): Times\n  }\n'], ['\n  type Times {\n    username: String\n    time: Int\n  }\n\n  extend type Query {\n    getTime(username: String!): Times\n  }\n\n  extend type Mutation {\n    setTime(username: String!, time: Int!): Times\n  }\n']);
 
 var _apolloServerKoa = require('apollo-server-koa');
 
@@ -25,7 +25,10 @@ var resolvers = exports.resolvers = {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                return _context.abrupt('return', { date: models.times[username] || null });
+                return _context.abrupt('return', {
+                  time: models.times[username] || null,
+                  username: username
+                });
 
               case 1:
               case 'end':
@@ -44,14 +47,17 @@ var resolvers = exports.resolvers = {
     setTime: function () {
       var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(root, _ref5, _ref6) {
         var username = _ref5.username,
-            date = _ref5.date;
+            time = _ref5.time;
         var models = _ref6.models;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                models.times[username] = date;
-                return _context2.abrupt('return', true);
+                models.times[username] = time;
+                return _context2.abrupt('return', {
+                  time: models.times[username],
+                  username: username
+                });
 
               case 2:
               case 'end':

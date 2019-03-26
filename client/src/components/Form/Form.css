@@ -1,0 +1,12 @@
+.form-user {
+    align-items: center;
+    display: flex;
+    height: 74vh;
+    justify-content: center;
+}
+
+.form-label {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
