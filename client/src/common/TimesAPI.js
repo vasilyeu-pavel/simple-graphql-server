@@ -11,9 +11,9 @@ export const getUserTime = graphql(
     }
   `,
     {
-        options: props => ({
+        options: ({ username }) => ({
             variables: {
-                username: "pasha",
+                username,
             },
             fetchPolicy: 'cache-and-network',
         }),
